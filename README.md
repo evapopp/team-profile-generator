@@ -7,6 +7,8 @@ A command-line application takes in information about employees on a software en
 HTML, CSS, Javascript, Node.js, Inquirer, Jest
 
 ## Links
-Repo: https://github.com/evapopp/team-profile-generator
+* Repo: https://github.com/evapopp/team-profile-generator
+* Video Demo: https://drive.google.com/file/d/1iDaewW2qB6mOjTXJEJ49ksZkipFBf-Pi/view
 
-
+## Page Preview
+![script view](./utils/screenshot.png)
