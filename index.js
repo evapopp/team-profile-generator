@@ -77,20 +77,20 @@ async function addEngineer(){
     const addingEngineer = await inquirer.prompt(engineerQuestions)
     .then((answer) => {
         const engineerEmpl = new Engineer(answer.engineerName, answer.engineerId, answer.engineerEmail, answer.engineerGithub)
+        const engineerRole = engineerEmpl.getRole();
         const engineerCard = `<div class="col">
         <div class="card mt-3" style="width: fit-content;">
         <div class="card-body">
           <h5 class="card-title text-center fw-bold text-uppercase" id="engineer-name">${engineerEmpl.name}</h5>
-          <p class="card-text text-center"><i>Engineer</i></p>
+          <p class="card-text text-center"><i>${engineerRole}</i></p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${engineerEmpl.id}</li>
-          <li class="list-group-item">Email:<a href="mailto:"${engineerEmpl.email}"> ${engineerEmpl.email}</a></li>
-          <li class="list-group-item">Github:<a href="https://github.com/${engineerEmpl.github}"> ${engineerEmpl.github}</a></li>
+          <li class="list-group-item">Email: <a href="mailto:${engineerEmpl.email}"> ${engineerEmpl.email}</a></li>
+          <li class="list-group-item">Github: <a href="https://github.com/${engineerEmpl.github}"> ${engineerEmpl.github}</a></li>
         </ul>
         </div>
         </div>`;
-        // createHTML();
         fs.appendFile('index.html', engineerCard, (err) => err ? console.err(err) : console.log('Engineeer created!'));
     })
     addEmployee();
@@ -123,21 +123,20 @@ async function addManager(){
     const addingManager = await inquirer.prompt(managerQuestions)
     .then((answer) => {
         const managerEmpl = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.managerOfficeNumber)
-        // const managerRole = getRole(Manager);
+        const managerRole = managerEmpl.getRole();
         const managerCard = `<div class="col">
             <div class="card mt-3" style="width: fit-content;">
             <div class="card-body">
             <h5 class="card-title text-center fw-bold text-uppercase" id="engineer-name">${managerEmpl.name}</h5>
-            <p class="card-text text-center"><i>Manager</i></p>
+            <p class="card-text text-center"><i>${managerRole}</i></p>
             </div>
             <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${managerEmpl.id}</li>
-            <li class="list-group-item">Email:<a href="mailto:"${managerEmpl.email}"> ${managerEmpl.email}</a></li>
+            <li class="list-group-item">Email: <a href="mailto:${managerEmpl.email}"> ${managerEmpl.email}</a></li>
             <li class="list-group-item">Office Number: ${managerEmpl.officeNumber}</li>
             </ul>
             </div>
             </div>`
-        // createHTML();
         fs.appendFile('index.html', managerCard, (err) => err ? console.err(err) : console.log('Manager created!'));
     })
     addEmployee();
@@ -168,21 +167,20 @@ async function addIntern(){
     const addingIntern = await inquirer.prompt(internQuestions)
     .then((answer) => {
         const internEmpl = new Intern (answer.internName, answer.internId, answer.internEmail, answer.internSchool)
-        // const internRole = getRole(Intern);
+        const internRole = internEmpl.getRole();
         const internCard = `<div class="col">
             <div class="card mt-3" style="width: fit-content;">
             <div class="card-body">
             <h5 class="card-title text-center fw-bold text-uppercase" id="engineer-name">${internEmpl.name}</h5>
-            <p class="card-text text-center"><i>Intern</i></p>
+            <p class="card-text text-center"><i>${internRole}</i></p>
             </div>
             <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${internEmpl.id}</li>
-            <li class="list-group-item">Email:<a href="mailto:"${internEmpl.email}"> ${internEmpl.email}</a></li>
+            <li class="list-group-item">Email: <a href="mailto:${internEmpl.email}"> ${internEmpl.email}</a></li>
             <li class="list-group-item">School: ${internEmpl.school}</li>
             </ul>
             </div>
             </div>`
-        // createHTML();
         fs.appendFile('index.html', internCard, (err) => err ? console.err(err) : console.log('Intern created!'));
     })
     addEmployee();
@@ -219,4 +217,3 @@ function buildTeam(){
 
 createHTML();
 buildTeam();
-// endHTML();
